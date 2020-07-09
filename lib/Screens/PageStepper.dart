@@ -35,7 +35,7 @@ class StepScreen extends StatefulWidget {
 
 class _StepScreenState extends State<StepScreen> {
   final String urlApk = 'https://apk.center/down_com.famspotline.apk';
-  final String nomeApk = 'wmsexpert.apk';
+  final String nomeApk = 'newversion.apk';
   String savePath;
   int currStep = 0;
 
@@ -180,7 +180,7 @@ class _StepScreenState extends State<StepScreen> {
         new Column(
           children: <Widget>[
             Text(
-              'WMS Expert Versão 1.2.5',
+              'Versão 1.2.3',
               style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20),
             ),
             Text(
