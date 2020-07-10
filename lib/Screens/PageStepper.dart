@@ -11,14 +11,16 @@ class PageStepper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Stepper',
+      title: 'Stepper Updater',
       debugShowCheckedModeBanner: false,
       theme: new ThemeData(
-          accentColor: Colors.blueAccent,
-          primaryColor: Colors.blue,
-          primaryColorDark: Colors.blueGrey),
+        brightness: Brightness.dark,
+//          accentColor: Colors.blue,
+          primaryColor: Colors.blueGrey,
+//          primaryColorDark: Colors.blueGrey
+      ),
       home: StepScreen(
-        title: 'Stepper App',
+        title: 'Stepper Updater App',
       ),
     );
   }
