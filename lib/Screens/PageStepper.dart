@@ -187,12 +187,13 @@ class _StepScreenState extends State<StepScreen> {
               'Nova rotina de teste',
               style: TextStyle(color: Colors.blueGrey, fontSize: 11),
             ),
-            Text('Bug fixes',
+            Text('Melhoria na performance',
                 style: TextStyle(color: Colors.blueGrey, fontSize: 11)),
             new SizedBox(
               height: 10.0,
             ),
-            _TextDownload()
+            _LinearProgress(),
+            _TextDownload(),
           ],
         ),
       ],
@@ -265,5 +266,19 @@ class _StepScreenState extends State<StepScreen> {
       );
 
     return Text('Baixando... ${downloadProgress.floor()} %');
+  }
+
+  _LinearProgress() {
+    if(downloadProgress>0)
+      return
+        Container(
+          padding: EdgeInsets.symmetric(vertical: 4),
+          child: LinearProgressIndicator(
+          value: downloadProgress/100,
+          backgroundColor: Colors.grey,
+          valueColor: AlwaysStoppedAnimation<Color>(Colors.blueGrey),
+      ),
+        );
+    return Container();
   }
 }
