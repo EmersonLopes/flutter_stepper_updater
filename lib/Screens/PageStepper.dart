@@ -1,9 +1,6 @@
-import 'dart:convert';
-import 'dart:io';
 import 'package:app_settings/app_settings.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:ftpclient/ftpclient.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -226,36 +223,6 @@ class _StepScreenState extends State<StepScreen> {
         }
       });
     });
-  }
-
-  _downloadFtp() async {
-    Map<String, String> headers = {
-      "Authorization":
-          'Basic ' + base64Encode(utf8.encode('ms9solucoes:ms9@80@'))
-    };
-    FTPClient ftpClient = FTPClient('ftp8.porta80.com.br/web/suporte/',
-        user: 'ms9solucoes', pass: 'ms9@80@');
-
-    // Connect to FTP Server
-    ftpClient.connect();
-
-    try {
-      setState(() {
-        downloadProgress = 0;
-      });
-      // Download File
-      ftpClient.downloadFile('app-release.apk', File('$nomeApk'));
-    } finally {
-      // Disconnect
-      ftpClient.disconnect();
-      setState(() {
-        downloadProgress = 100;
-        if ((!downLoadComplete) && (downloadProgress == 100)) {
-          downLoadComplete = true;
-          currStep = stepInstall;
-        }
-      });
-    }
   }
 
   _TextDownload() {
